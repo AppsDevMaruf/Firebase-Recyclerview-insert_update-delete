@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Recycler View</string>
+    <string name="maruf_alam_porosh">Maruf Alam Porosh</string>
+    <string name="cse">CSE</string>
+    <string name="_016874224">016874224**</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

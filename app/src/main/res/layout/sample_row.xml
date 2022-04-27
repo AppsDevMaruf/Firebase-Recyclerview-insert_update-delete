@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="8dp"
+    android:padding="2dp"
+    app:cardElevation="5dp"
+    android:focusable="true"
+    android:backgroundTint="#5A0505"
+    app:cardCornerRadius="10dp"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/proImg"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:padding="10dp"
+            app:strokeWidth="3dp"
+            android:src="@drawable/mypiccircle"
+            app:strokeColor="@android:color/white"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/departmentTV"
+            app:srcCompat="@mipmap/ic_launcher"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/nameTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/alata"
+            android:includeFontPadding="false"
+            android:text="@string/maruf_alam_porosh"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/departmentTV"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/proImg"
+            app:layout_constraintTop_toTopOf="@+id/proImg" />
+
+        <TextView
+            android:id="@+id/departmentTV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/anton"
+            android:includeFontPadding="false"
+            android:text="@string/cse"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/phoneNumTv"
+            app:layout_constraintEnd_toEndOf="@id/nameTv"
+            app:layout_constraintStart_toEndOf="@+id/proImg"
+            app:layout_constraintTop_toBottomOf="@id/nameTv" />
+
+        <TextView
+            android:id="@+id/phoneNumTv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/amaranth"
+            android:includeFontPadding="false"
+            android:text="@string/_016874224"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/nameTv"
+            app:layout_constraintStart_toEndOf="@+id/proImg"
+            app:layout_constraintTop_toBottomOf="@id/departmentTV" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
