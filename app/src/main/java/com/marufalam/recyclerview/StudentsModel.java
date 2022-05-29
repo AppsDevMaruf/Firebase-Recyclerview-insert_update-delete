@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentsModel {
-    private int profileImg;
+    private String id;
+    private String profileImg;
     private  String name;
     private  String department;
     private  String number;
@@ -12,18 +13,27 @@ public class StudentsModel {
     public StudentsModel() {
     }
 
-    public StudentsModel(int profileImg, String name, String department, String number) {
+    public StudentsModel(String id, String profileImg, String name, String department, String number) {
+        this.id = id;
         this.profileImg = profileImg;
         this.name = name;
         this.department = department;
         this.number = number;
     }
 
-    public int getProfileImg() {
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getProfileImg() {
         return profileImg;
     }
 
-    public void setProfileImg(int profileImg) {
+    public void setProfileImg(String profileImg) {
         this.profileImg = profileImg;
     }
 
@@ -51,21 +61,11 @@ public class StudentsModel {
         this.number = number;
     }
 
-    @Override
-    public String toString() {
-        return "StudentsModel{" +
-                "profileImg=" + profileImg +
-                ", name='" + name + '\'' +
-                ", department='" + department + '\'' +
-                ", number='" + number + '\'' +
-                '}';
-    }
-
     public static List<StudentsModel> getAllStudents(){
 
         List<StudentsModel> studentList = new ArrayList<>();
 
-        studentList.add(new StudentsModel(R.drawable.mypiccircle,"Maruf Alam","CSE","+8801687422**"));
+       /* studentList.add(new StudentsModel(R.drawable.mypiccircle,"Maruf Alam","CSE","+8801687422**"));
         studentList.add(new StudentsModel(R.drawable.maruf,"Maruf Alam Porosh ","BBA","+8801757422**"));
         studentList.add(new StudentsModel(R.drawable.doctor,"Lima","FN","+8801487422**"));
         studentList.add(new StudentsModel(R.drawable.doctor2,"Nuha","BBA","+8801387422**"));
@@ -81,7 +81,7 @@ public class StudentsModel {
         studentList.add(new StudentsModel(R.drawable.profile5,"Rayhan","MBA","+88019522**"));
         studentList.add(new StudentsModel(R.drawable.mypiccircle,"Morsed","CSE","+88013587422**"));
         studentList.add(new StudentsModel(R.drawable.mypiccircle,"Mostak Ahmed","JM","+8801587422**"));
-        studentList.add(new StudentsModel(R.drawable.mypiccircle,"Nayon","EEE","+8801987422**"));
+        studentList.add(new StudentsModel(R.drawable.mypiccircle,"Nayon","EEE","+8801987422**"));*/
 
         return studentList;
 

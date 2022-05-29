@@ -4,8 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/USER/RecyclerView/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/USER/RecyclerView/app/src/main/res/layout/dialogcontent.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/USER/RecyclerView/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/USER/RecyclerView/app/src/main/res/layout/sample_row.xml" value="0.16" />
+        <entry key="..\:/Users/USER/RecyclerView/app/src/main/res/layout/sample_row.xml" value="0.512589928057554" />
       </map>
     </option>
   </component>

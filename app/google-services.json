@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "328138019730",
+    "project_id": "recycelerview-8b947",
+    "storage_bucket": "recycelerview-8b947.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:328138019730:android:927a85c1d1dd479079e74b",
+        "android_client_info": {
+          "package_name": "com.marufalam.recyclerview"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "328138019730-r21j9061pds98eqatrgrrma4tn46911f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-Gef-35APlyIun0yhJSW3n_T27N_jZr4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "328138019730-r21j9061pds98eqatrgrrma4tn46911f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
