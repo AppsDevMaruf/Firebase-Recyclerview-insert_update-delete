@@ -2,6 +2,7 @@ package com.marufalam.recyclerview;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -23,6 +24,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -56,6 +58,7 @@ public class HomeFragment extends Fragment {
     private FloatingActionButton fb;
     private ImageView imagePreview, cancelButton;
     private Button addButton;
+    private TextView pageTitle;
     private EditText name, department, number;
     private MaterialCardView addImg;
     private DatabaseReference database;
@@ -77,6 +80,7 @@ public class HomeFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -100,6 +104,8 @@ public class HomeFragment extends Fragment {
             name = dialog.findViewById(R.id.uname);
             department = dialog.findViewById(R.id.udepartment);
             number = dialog.findViewById(R.id.unumber);
+            pageTitle = dialog.findViewById(R.id.pageTitle);
+            pageTitle.setText("Insert Content Panel");
 
             addButton = dialog.findViewById(R.id.usubmit);
             addImg.setOnClickListener(new View.OnClickListener() {
