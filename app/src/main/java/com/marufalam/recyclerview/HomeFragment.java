@@ -67,6 +67,7 @@ public class HomeFragment extends Fragment {
     private String fullName;
     private String departName;
     private String mobileNumber;
+    private Dialog dialog;
 
 
     private List<StudentsModel> studentsList = new ArrayList<>();
@@ -90,7 +91,7 @@ public class HomeFragment extends Fragment {
         fb = view.findViewById(R.id.fadd);
         fb.setOnClickListener(view1 -> {
             Toast.makeText(requireActivity(), "Clicked", Toast.LENGTH_SHORT).show();
-            Dialog dialog = new Dialog(view.getContext());
+           dialog = new Dialog(view.getContext());
 
             dialog.setContentView(R.layout.dialogcontent);
 
@@ -200,6 +201,7 @@ public class HomeFragment extends Fragment {
                     Toast.makeText(requireActivity(), "Insert Failed", Toast.LENGTH_SHORT).show();
                 });
 
+        dialog.dismiss();
     }
 
 
