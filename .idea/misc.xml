@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/USER/RecyclerView/app/src/main/res/drawable-v24/circle_shape_blue.xml" value="0.1495" />
+        <entry key="..\:/Users/USER/RecyclerView/app/src/main/res/drawable-v24/ic__upload.xml" value="0.1495" />
         <entry key="..\:/Users/USER/RecyclerView/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/USER/RecyclerView/app/src/main/res/layout/dialogcontent.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/USER/RecyclerView/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />

@@ -1,10 +1,19 @@
 package com.marufalam.recyclerview;
 
+import static android.app.Activity.RESULT_OK;
+
+import static androidx.core.app.ActivityCompat.startActivityForResult;
+
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,29 +25,43 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.StorageReference;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentViewHolder> {
 
-    private ImageView cancelButton;
+    private ImageView imagePreview, cancelButton;
+    private MaterialCardView UpdateImg;
     private Button addButton;
-    private EditText imageUrl, name, department, number;
+    private EditText name, department, number;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     StudentAdapter adapter;
-    ProgressDialog progressDialog ;
+    private DatabaseReference database;
+    private ProgressDialog progressDialog;
+    private final int REQ = 1;
+    private Bitmap bitmap;
+    private StorageReference storageReference;
+    private String downloadUrl = "";
+    private String fullName="";
+    private String departName="";
+    private String mobileNumber="";
+    private Context context;
         int counter =0;
     List<StudentsModel> studentList = new ArrayList<>();
 
@@ -116,12 +139,12 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
               dialog.setContentView(R.layout.dialogcontent);
 
 
-              imageUrl = dialog.findViewById(R.id.uimgurl);
+              imagePreview = dialog.findViewById(R.id.imagePreview);
               name = dialog.findViewById(R.id.uname);
               department = dialog.findViewById(R.id.udepartment);
               number = dialog.findViewById(R.id.unumber);
 
-              imageUrl.setText(studentList.get(position).getProfileImg());
+
               name.setText(studentList.get(position).getName());
               department.setText(studentList.get(position).getDepartment());
               number.setText(studentList.get(position).getNumber());
@@ -138,15 +161,13 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
                       progressDialog.setMessage("Update Data");
                       progressDialog.show();
 
-                      String url = imageUrl.getText().toString().trim();
+
                       String fullName = name.getText().toString().trim();
                       String departName = department.getText().toString().trim();
                       String mobileNumber = number.getText().toString().trim();
 
                       if(fullName.equalsIgnoreCase("")){
                           name.setError("Enter A Valid Name");
-                      }if(url.equalsIgnoreCase("")){
-                          imageUrl.setError("Enter A Valid URl");
                       }
                       if(departName.equalsIgnoreCase("")){
                           department.setError("Enter A Valid Department");
@@ -154,7 +175,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
                           number.setError("Enter A Valid Number");
                       }else {
                            DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("students").child(models.getId());
-                            StudentsModel studentsModel = new StudentsModel(models.getId(),url,fullName,departName,mobileNumber);
+                            StudentsModel studentsModel = new StudentsModel(models.getId(),"url",fullName,departName,mobileNumber);
                             databaseReference.setValue(studentsModel).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
@@ -186,7 +207,12 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
 
 
 
+
+
     }
+
+
+
 
     @Override
     public int getItemCount() {
@@ -208,6 +234,12 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
             number = itemView.findViewById(R.id.phoneNumTv);
             delete = itemView.findViewById(R.id.delete);
             edit = itemView.findViewById(R.id.edit);
+
+
         }
+
+
     }
+
+
 }
