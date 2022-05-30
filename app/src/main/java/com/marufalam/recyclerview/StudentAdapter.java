@@ -46,8 +46,9 @@ import java.util.List;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentViewHolder> {
 
-    private ImageView imagePreview, cancelButton;
+    private ImageView imagePreview, cancelButton,uploadImage;
     private MaterialCardView UpdateImg;
+
     private Button addButton;
     private EditText name, department, number;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -90,6 +91,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
             Glide.with(holder.profileImage.getContext())
                     .load(models.getProfileImg())
                     .centerCrop()
+                    .placeholder(R.drawable.load_icon)
                     .into(holder.profileImage);
             holder.name.setText(models.getName());
             holder.department.setText(models.getDepartment());
@@ -136,15 +138,21 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
               Toast.makeText(view.getContext(), "req", Toast.LENGTH_SHORT).show();
               Dialog dialog = new Dialog(view.getContext());
 
-              dialog.setContentView(R.layout.dialogcontent);
+              dialog.setContentView(R.layout.updatedialogcontent);
 
 
               imagePreview = dialog.findViewById(R.id.imagePreview);
               name = dialog.findViewById(R.id.uname);
               department = dialog.findViewById(R.id.udepartment);
               number = dialog.findViewById(R.id.unumber);
+              ShapeableImageView showPImage = dialog.findViewById(R.id.uproImg);
+              number = dialog.findViewById(R.id.unumber);
 
-
+              /*Glide.with(holder.profileImg.getContext())
+                      .load(studentList.get(position).getProfileImg())
+                      .centerCrop()
+                      .placeholder(R.drawable.load_icon)
+                      .into(showPImage);*/
               name.setText(studentList.get(position).getName());
               department.setText(studentList.get(position).getDepartment());
               number.setText(studentList.get(position).getNumber());
@@ -152,6 +160,7 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
               addButton = dialog.findViewById(R.id.usubmit);
               addButton.setText("Update");
               cancelButton = dialog.findViewById(R.id.cancel_button);
+              cancelButton.setOnClickListener(view1 -> {dialog.dismiss();});
 
               addButton.setOnClickListener(new View.OnClickListener() {
                   @Override
@@ -195,10 +204,6 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
               });
 
 
-
-
-
-
               dialog.setCancelable(false);
               dialog.show();
           }
@@ -223,7 +228,8 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
     //initialize view
     public static class StudentViewHolder extends RecyclerView.ViewHolder {
         ShapeableImageView profileImage;
-        ImageView edit,delete;;
+        ImageView edit,delete,uploadImage;
+        ShapeableImageView profileImg;
         TextView name,department,number;
         public StudentViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -234,6 +240,8 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.StudentV
             number = itemView.findViewById(R.id.phoneNumTv);
             delete = itemView.findViewById(R.id.delete);
             edit = itemView.findViewById(R.id.edit);
+            profileImg = itemView.findViewById(R.id.uproImg);
+            uploadImage = itemView.findViewById(R.id.uImg);
 
 
         }
